@@ -1,25 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
-ll div(ll n){
-    ll i = 0;
-    while(n > 0 && n % 5 == 0){
-        n = n / 5;
-        i++;
-    }
-    return i;
-}
+
 void search(ll n){
     ll c = 0;
-    for(ll x = n; x > 0; ){
-        if(x % 5 == 0){
-            //cout<<x<<"\n";
-            c += div(x);
-            x = x - 5;
-        }
-        else
-            x--;
-    }
+    for(ll x = 5; n / x >= 1; x *= 5)
+        c += n / x;
     cout<<c;
 }
 int main(){
