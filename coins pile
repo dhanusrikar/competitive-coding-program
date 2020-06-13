@@ -1,35 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
-int solve(ll a, ll b){
-    int f = 0;
-    ll x, y;
-    if(a == 0 && b == 0)
-        return 1;
-    while(a >= 0 && b >= 0){
-        f = 0;
-        if(a > b){
-            x = a;
-            y = b;
-        }
-        else{
-            x = b;
-            y = a;
-        }
-        a = x;
-        b = y;
-        if(a - 2 < 0 || b - 1 < 0)
-            return 0;
-        if(a - 2 == 0 && b - 1 == 0)
-            return 1;
-        else{
-            f = 1;
-            a = a - 2;
-            b = b - 1;
-        }
-    }
-    return f;
-}
 
 int main(){
     ios::sync_with_stdio(0);
@@ -39,17 +10,12 @@ int main(){
     vector<int> sol(t, 0);
 
     for(ll i = 0; i < t; i++){
-        cin>>a>>b;
-        sol[i] = solve(a, b);
-    }
-
-    for(ll i = 0; i < t; i++){
-        if(sol[i] == 0)
-            cout<<"NO\n";
-        else
+        cin>> a >> b;
+        if(2 * a - b >= 0 && (2 * a - b) % 3 == 0 && 2 * b - a >= 0 && (2 * b - a) % 3 == 0)
             cout<<"YES\n";
+        else
+            cout<<"NO\n";
     }
-
     return 0;
 }
 
