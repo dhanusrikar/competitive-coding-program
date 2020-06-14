@@ -27,13 +27,14 @@ void search(long long n){
     for(long long i = 1; i <= n; i++){
         if(i == 1)
             cout<<c<<"\n";
-        else{
+        else{ // Here I am removing the number of 2x3 and 3x2 matrices formed in the board from the total number 
+              // of ways you can place the two knights
             c = binomialCoeff(i*i, 2) - (4 * (i -2) * (i - 1));
             cout<<c<<"\n";
         }
     }
 }
- 
+
 int main(){
     long long x;
     cin>>x;
