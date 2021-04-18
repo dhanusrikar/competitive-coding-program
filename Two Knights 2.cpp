@@ -1,3 +1,4 @@
+// Second Method for Two knights
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
