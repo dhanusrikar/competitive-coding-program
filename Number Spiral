@@ -1,3 +1,9 @@
+/*
+A number spiral is an infinite grid whose upper-left square has number 1.
+https://cses.fi/problemset/task/1071
+Your task is to find out the number in row y and column x.
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
