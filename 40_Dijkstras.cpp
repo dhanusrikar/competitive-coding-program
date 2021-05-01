@@ -50,23 +50,12 @@ int main()
     }
     vertices.erase(vertices.find(source));
     set<int>::iterator itr;
-    // for (itr = vertices.begin(); itr != vertices.end(); itr++)
-    // {
-    //     cout << *itr << endl;
-    // }
-    ll u = INT_MAX, minimum_value = INT_MAX;
-    for (itr = vertices.begin(); itr != vertices.end(); itr++)
-    {
-        int x = (*itr);
-        if (dist[x] < minimum_value)
-        {
-            minimum_value = dist[x];
-            u = x;
-        }
-    }
     while (!vertices.empty())
     {
+        // minimum_value -> minimum value of the unvisited vertex in dist array
+        // u -> array index of minimum value
         ll u = INT_MAX, minimum_value = INT_MAX;
+
         for (itr = vertices.begin(); itr != vertices.end(); itr++)
         {
             int x = (*itr);
@@ -76,10 +65,13 @@ int main()
                 u = x;
             }
         }
+        // settting u as visited node
         vertices.erase(vertices.find(u));
         for (itr = vertices.begin(); itr != vertices.end(); itr++)
         {
             int x = (*itr);
+            // check which path is shorter, i.e. new or prev
+            // if new path is shorter then update distance and path array
             ll y = weight_matrix[u][x] + minimum_value;
             if (dist[x] > y)
             {
